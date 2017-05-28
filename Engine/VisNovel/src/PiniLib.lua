@@ -293,6 +293,7 @@ function LNX_IMAGE(vm,stck)
 		
 		if imgcut then
 			ClippingNode:setClippingSize(imgcut)
+		end
 		if not OnPreview then
 			if enableAnti then
 				node.node:getTexture():setAntiAliasTexParameters()
