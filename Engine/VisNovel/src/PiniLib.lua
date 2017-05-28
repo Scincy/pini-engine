@@ -219,6 +219,7 @@ function LNX_IMAGE(vm,stck)
 	local keep = vm:ARGU("이미지","유지","아니오") == "예"
 	local angle = vm:ARGU("이미지","회전",0)
 	local enableAnti = vm:ARGU("이미지","안티","예")
+	local imgcut = vm:ARGU("이미지","자르기",nil)
 
 	x = tonumber(x)
 	y = tonumber(y)
@@ -289,7 +290,9 @@ function LNX_IMAGE(vm,stck)
 		node:setFlip(flipX,flipY)
 		node:setPreserve(isPreserve)
 		node:setRotate(angle)
-
+		
+		if imgcut then
+			ClippingNode:setClippingSize(imgcut)
 		if not OnPreview then
 			if enableAnti then
 				node.node:getTexture():setAntiAliasTexParameters()
